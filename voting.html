@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> VoteEase Project</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="default.css">
+
+    <style type="text/css">
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .img-container {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer; /* Add cursor pointer to indicate clickability */
+        }
+
+        /* Add styles for the image preview card */
+        .image-preview-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 9999;
+            max-width: 80%; /* Limit the width of the preview card */
+        }
+
+        .image-preview-container h5 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .image-preview-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add styles for the close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="nav-wrapper">
+        <a href="index.html">
+            <div class="dots-wrapper">
+                <div id="dot-1" class="browser-dot"></div>
+                <div id="dot-2" class="browser-dot"></div>
+                <div id="dot-3" class="browser-dot"></div>
+            </div>
+        </a>
+        <div class="greeting-wrapper">
+            <h1>Hi, I'm SANDHYA</h1>
+      </div>
+        <ul id="navigation">
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="main-container">
+        <br>
+
+        <div class="img-container">
+            <h5>VoteEase Homepage</h5>
+            <img src="images/Homevoting.png" onclick="showImagePreview('Book Heaven Online', 'images/Book.png')">
+            
+        </div>
+
+        <h3>VoteEase Project</h3>
+
+        <p>This was a project I started in June 2023. It took almost 40 days to complete the project.
+        <br>
+        <br>
+        The project is an online voting portal built using Express.js, React.js, MongoDB, and Node.js.<br>
+        <br>
+        It facilitates two types of elections: normal democratic elections and president elections. In the normal democratic elections, common people can see political parties' information, register/login to vote in their constituency, and receive an encrypted email upon successful voting. Votes are stored encrypted using AES algorithm, ensuring security and privacy.<br>
+        <br>
+        For president elections, only Shabha (Lok Sabha and Rajya Sabha) members can vote for the president. Their details are fetched from a government API, and they need to provide their ID to validate their eligibility. The candidate's votes are increased based on the state the Shabha member belongs to, with the vote count encrypted using AES before storing in the database.<br>
+        <br>
+        After elections, users can view the election results, providing transparency in the electoral process. The project effectively combines modern technologies, secure data handling, and government APIs to create a reliable and transparent online voting platform.
+        <h5>Technologies:</h5>
+        <ul>
+            <li>- Express JS</li>
+            <li>- React JS</li>
+            <li>- Node JS</li>
+            <li>- MongoDB</li>
+            <li>- Bcrypt Library</li>
+            <li>- Government APIs </li>
+            <li>- Created APIs </li>
+        </ul>
+
+        <br>
+        <h6>
+            Note :- Click on the Image to see properly. <br><br>
+        </h6>
+        <div class="grid-container">
+            <div class="img-container">
+                  <h5>Guidelines</h5>
+                  <img src="images/first.png" alt="Admin Dashboard" onclick="showImagePreview('Guidelines', 'images/first.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Login Form</h5>
+                  <img src="images/loginpage.png" alt="Login Form" onclick="showImagePreview('Login Form', 'images/loginpage.png')">
+
+            </div>
+
+            <div class="img-container">  
+                  <h5>Political Parties</h5>
+                  <img src="images/parties.png" alt="Search Results" onclick="showImagePreview('Political Parties', 'images/parties.png')">
+            </div>
+
+            <div class="img-container">
+                  <h5>Candidate List</h5>
+                  <img src="images/candidatelist.png" alt="Cart Page" onclick="showImagePreview('Candidate List', 'images/candidatelist.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Preview Before Voting</h5>
+                  <img src="images/previewvote.png" alt="Payment" onclick="showImagePreview('Preview Before Voting', 'images/previewvote.png')">
+
+            </div>
+
+            <div class="img-container">
+                  <h5>Election Results</h5>
+                  <img src="images/resultsDemo.png" alt="Customer Dashboard" onclick="showImagePreview('Election Results', 'images/resultsDemo.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Shabha Member Login</h5>
+                  <img src="images/shabhalogin.png" alt="Customer Dashboard" onclick="showImagePreview('Shabha Member Login', 'images/shabhalogin.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Rashtrapati Election Candidates</h5>
+                  <img src="images/rashtrapaticandidate.png" alt="Customer Dashboard" onclick="showImagePreview('Rashtrapati Election Candidates', 'images/rashtrapaticandidate.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Rashtrapati Candidate Preview</h5>
+                  <img src="images/rashtrapatipreview.png" alt="Customer Dashboard" onclick="showImagePreview('Rashtrapati Candidate Preview', 'images/rashtrapatipreview.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Rashtrapati Election Results</h5>
+                  <img src="images/winners.png" alt="Customer Dashboard" onclick="showImagePreview('Rashtrapati Election Results', 'images/winners.png')">
+            </div>
+
+            <div class="img-container">
+                  <h5>Showing Transparency in Rashtrapati Election Results</h5>
+                  <img src="images/transparency.png" alt="Customer Dashboard" onclick="showImagePreview('Showing Transparency in Rashtrapati Election Results', 'images/transparency.png')">
+            </div>
+        </div>
+
+        <!-- Image preview container -->
+        <div class="image-preview-container" id="imagePreview">
+            <span style="size: 15px;" class="close-button" onclick="closeImagePreview()">&times;</span>
+            <h5 id="previewName">Book Heaven Online</h5>
+            <img id="previewImage" src="images/Book.png">
+        </div>
+
+    </div>
+
+    <script>
+        // JavaScript function to show the image preview card
+        function showImagePreview(name, imageUrl) {
+            const previewNameElement = document.getElementById('previewName');
+            const previewImageElement = document.getElementById('previewImage');
+
+            // Set the name and image source for the preview card
+            previewNameElement.textContent = name;
+            previewImageElement.src = imageUrl;
+
+            // Show the image preview container
+            const imagePreviewContainer = document.getElementById('imagePreview');
+            imagePreviewContainer.style.display = 'block';
+        }
+
+        // JavaScript function to close the image preview card
+        function closeImagePreview() {
+            const imagePreviewContainer = document.getElementById('imagePreview');
+            imagePreviewContainer.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

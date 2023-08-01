@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> BookHeaven Project</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="default.css">
+
+    <style type="text/css">
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .img-container {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer; /* Add cursor pointer to indicate clickability */
+        }
+
+        /* Add styles for the image preview card */
+        .image-preview-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 9999;
+            max-width: 80%; /* Limit the width of the preview card */
+        }
+
+        .image-preview-container h5 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .image-preview-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add styles for the close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="nav-wrapper">
+        <a href="index.html">
+            <div class="dots-wrapper">
+                <div id="dot-1" class="browser-dot"></div>
+                <div id="dot-2" class="browser-dot"></div>
+                <div id="dot-3" class="browser-dot"></div>
+            </div>
+        </a>
+        <div class="greeting-wrapper">
+            <h1>Hi, I'm SANDHYA</h1>
+      </div>
+        <ul id="navigation">
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="main-container">
+        <br>
+
+        <div class="img-container">
+            <h5>Book Heaven Online Homepage</h5>
+            <img src="images/Book.png" onclick="showImagePreview('Book Heaven Online', 'images/Book.png')">
+            
+        </div>
+
+        <h3>Book Heaven Online</h3>
+
+        <p>This was a project I started back in February 2023. It took almost 70 days to complete the project.
+        <br>
+        <br>
+        This project is a feature-rich book store application built using ReactJS, ExpressJS, NodeJS, and MongoDB. 
+        <br>
+        <br>
+        It offers a user-friendly interface with a homepage displaying a wide range of books, along with a filtering system for sorting by price or category. The navbar includes a dropdown menu listing all available book categories. User registration and login functionalities with password encryption using bcrypt and JSON web tokens ensure secure access.
+        <br>
+        <br>
+        The application provides separate functionalities for admins and clients. Admins can manage products, categories, and orders, enabling them to create, update, and delete products. 
+        <br>
+        <br>
+        Users can add desired books to their cart and make purchases using the Braintree payment gateway, accepting both card and PayPal payments. The implementation of toast notifications enhances the user experience throughout the application.</p>
+
+        <h5>Technologies:</h5>
+        <ul>
+            <li>- Express JS</li>
+            <li>- React JS</li>
+            <li>- Node JS</li>
+            <li>- MongoDB</li>
+            <li>- Bcrypt Library</li>
+            <li>- Braintree Payment </li>
+        </ul>
+
+        <br>
+        <h6>
+            Note :- Click on the Image to see properly. <br><br>
+        </h6>
+        <div class="grid-container">
+            <div class="img-container">
+                  <h5>BookHeaven Admin Dashboard</h5>
+                  <img src="images/adminPanel.png" alt="Admin Dashboard" onclick="showImagePreview('BookHeaven Admin Dashboard', 'images/adminPanel.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Login Form</h5>
+                  <img src="images/login.png" alt="Login Form" onclick="showImagePreview('Login Form', 'images/login.png')">
+
+            </div>
+
+            <div class="img-container">  
+                  <h5>Search Results</h5>
+                  <img src="images/SearchResults.png" alt="Search Results" onclick="showImagePreview('Search Results', 'images/SearchResults.png')">
+            </div>
+
+            <div class="img-container">
+                  <h5>Cart Page</h5>
+                  <img src="images/cartPage.png" alt="Cart Page" onclick="showImagePreview('Cart Page', 'images/cartPage.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Payment Page</h5>
+                  <img src="images/Payment.png" alt="Payment" onclick="showImagePreview('Payment', 'images/Payment.png')">
+
+            </div>
+
+            <div class="img-container">
+                  <h5>Customer Dashboard</h5>
+                  <img src="images/customer.png" alt="Customer Dashboard" onclick="showImagePreview('Customer Dashboard', 'images/customer.png')">
+                
+            </div>
+        </div>
+
+        <!-- Image preview container -->
+        <div class="image-preview-container" id="imagePreview">
+            <span class="close-button" onclick="closeImagePreview()">&times;</span>
+            <h5 id="previewName">Book Heaven Online</h5>
+            <img id="previewImage" src="images/Book.png">
+        </div>
+
+    </div>
+
+    <script>
+        // JavaScript function to show the image preview card
+        function showImagePreview(name, imageUrl) {
+            const previewNameElement = document.getElementById('previewName');
+            const previewImageElement = document.getElementById('previewImage');
+
+            // Set the name and image source for the preview card
+            previewNameElement.textContent = name;
+            previewImageElement.src = imageUrl;
+
+            // Show the image preview container
+            const imagePreviewContainer = document.getElementById('imagePreview');
+            imagePreviewContainer.style.display = 'block';
+        }
+
+        // JavaScript function to close the image preview card
+        function closeImagePreview() {
+            const imagePreviewContainer = document.getElementById('imagePreview');
+            imagePreviewContainer.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
