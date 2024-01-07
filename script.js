@@ -38,3 +38,20 @@ function setTheme(mode){
 
 	localStorage.setItem('theme', mode)
 }
+
+function toggleMobileMenu() {
+	const navbar = document.querySelector('.navbar');
+	const hamburgerIcon = document.getElementById('hamburgerIcon');
+	const crossIcon = document.getElementById('crossIcon');
+
+	navbar.classList.toggle('active');
+
+	// Toggle visibility of hamburger and cross icons
+	if (navbar.classList.contains('active')) {
+		hamburgerIcon.style.display = 'none';
+		crossIcon.style.display = 'inline';
+	} else {
+		hamburgerIcon.style.display = 'inline';
+		crossIcon.style.display = 'none';
+	}
+}
