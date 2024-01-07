@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Ecommerce WEBSITE</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="default.css">
+
+    <style type="text/css">
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .img-container {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer; /* Add cursor pointer to indicate clickability */
+        }
+
+        /* Add styles for the image preview card */
+        .image-preview-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 9999;
+            max-width: 80%; /* Limit the width of the preview card */
+        }
+
+        .image-preview-container h5 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .image-preview-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add styles for the close button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* Add this style for the navbar */
+			.navbar {
+				background-color: #333;
+				overflow: hidden;
+				position: fixed;
+				top: 0;
+				width: 100%;
+			}
+
+			.navbar a {
+				float: left;
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			.navbar a:hover {
+				background-color: #ddd;
+				color: black;
+			}
+
+			.navbar a.active {
+				background-color: #4CAF50;
+				color: white;
+			}
+
+			/* Style for the mobile menu button */
+.mobile-menu-button {
+    display: none; /* Initially hide on larger screens */
+    float: right;
+    cursor: pointer;
+    padding: 14px 16px;
+    color: white;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .close-button {
+        font-size: 30px; /* Increase font size for mobile devices */
+        color: white; /* Change color to match the navbar text color */
+    }
+}
+
+/* Responsive navigation menu */
+@media screen and (max-width: 600px) {
+    .navbar a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    h1 {
+        margin-left: 10px; /* Adjust the margin for smaller screens */
+    }
+    /* Show the mobile menu button on smaller screens */
+    .mobile-menu-button {
+        display: block;
+    }
+
+    /* Hide regular menu items on smaller screens initially */
+    .navbar a {
+        display: none;
+    }
+
+    /* Display regular menu items as a vertical list when mobile menu is active */
+    .navbar.active a {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+    #crossIcon {
+        display: inline; /* Show cross icon on mobile devices */
+    }
+    
+			}
+    </style>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="mobile-menu-button" onclick="toggleMobileMenu()">
+            <span id="hamburgerIcon">&#9776;</span> <!-- Hamburger icon -->
+            <span id="crossIcon" style="display: none;">&times;</span> <!-- Cross icon initially hidden -->
+            
+        </div>
+        <div>
+        <a href="index.html">Home</a>
+        <a class="active" href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    </div>
+    <h1 style="margin-top: 70px; " "margin-left: 30px">Ecommerce WEBSITE</h1>  
+
+    <div class="main-container">
+        <br>
+
+        <div class="img-container">
+            <h5>Book Heaven Online Homepage</h5>
+            <img src="images/Book.png" onclick="showImagePreview('Book Heaven Online', 'images/Book.png')">
+            
+        </div>
+
+        <h3>Book Heaven Online</h3>
+
+        <p>This was a project I started back in February 2023. It took almost 70 days to complete the project.
+        <br>
+        <br>
+        This project is a feature-rich Ecommerce store application built using ReactJS, ExpressJS, NodeJS, and MongoDB. 
+        <br>
+        <br>
+        It offers a user-friendly interface with a homepage displaying a wide range of products, along with a filtering system for sorting by price or category. The navbar includes a dropdown menu listing all available product categories. User registration and login functionalities with password encryption using bcrypt and JSON web tokens ensure secure access.
+        <br>
+        <br>
+        The application provides separate functionalities for admins and clients. Admins can manage products, categories, and orders, enabling them to create, update, and delete products. 
+        <br>
+        <br>
+        Users can add desired products to their cart and make purchases using the Braintree payment gateway, accepting both card and PayPal payments. The implementation of toast notifications enhances the user experience throughout the application.</p>
+
+        <h5>Technologies:</h5>
+        <ul>
+            <li>- Express JS</li>
+            <li>- React JS</li>
+            <li>- Node JS</li>
+            <li>- MongoDB</li>
+            <li>- Bcrypt Library</li>
+            <li>- Braintree Payment </li>
+        </ul>
+
+        <br>
+        <h6>
+            Note :- Click on the Image to see properly. <br><br>
+        </h6>
+        <div class="grid-container">
+            <div class="img-container">
+                  <h5> Admin Dashboard</h5>
+                  <img src="images/adminPanel.png" alt="Admin Dashboard" onclick="showImagePreview('Admin Dashboard', 'images/adminPanel.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Login Form</h5>
+                  <img src="images/login.png" alt="Login Form" onclick="showImagePreview('Login Form', 'images/login.png')">
+
+            </div>
+
+            <div class="img-container">  
+                  <h5>Search Results</h5>
+                  <img src="images/SearchResults.png" alt="Search Results" onclick="showImagePreview('Search Results', 'images/SearchResults.png')">
+            </div>
+
+            <div class="img-container">
+                  <h5>Cart Page</h5>
+                  <img src="images/cartPage.png" alt="Cart Page" onclick="showImagePreview('Cart Page', 'images/cartPage.png')">
+                
+            </div>
+
+            <div class="img-container">
+                  <h5>Payment Page</h5>
+                  <img src="images/Payment.png" alt="Payment" onclick="showImagePreview('Payment', 'images/Payment.png')">
+
+            </div>
+
+            <div class="img-container">
+                  <h5>Customer Dashboard</h5>
+                  <img src="images/customer.png" alt="Customer Dashboard" onclick="showImagePreview('Customer Dashboard', 'images/customer.png')">
+                
+            </div>
+        </div>
+
+        <!-- Image preview container -->
+        <div class="image-preview-container" id="imagePreview">
+            <span class="close-button" onclick="closeImagePreview()">&times;</span>
+            <h5 id="previewName">Book Heaven Online</h5>
+            <img id="previewImage" src="images/Book.png">
+        </div>
+
+    </div>
+
+    <script>
+        // JavaScript function to show the image preview card
+        function showImagePreview(name, imageUrl) {
+            const previewNameElement = document.getElementById('previewName');
+            const previewImageElement = document.getElementById('previewImage');
+
+            // Set the name and image source for the preview card
+            previewNameElement.textContent = name;
+            previewImageElement.src = imageUrl;
+
+            // Show the image preview container
+            const imagePreviewContainer = document.getElementById('imagePreview');
+            imagePreviewContainer.style.display = 'block';
+        }
+
+        // JavaScript function to close the image preview card
+        function closeImagePreview() {
+            const imagePreviewContainer = document.getElementById('imagePreview');
+            imagePreviewContainer.style.display = 'none';
+        }
+
+        function toggleMobileMenu() {
+            const navbar = document.querySelector('.navbar');
+            const hamburgerIcon = document.getElementById('hamburgerIcon');
+            const crossIcon = document.getElementById('crossIcon');
+
+            navbar.classList.toggle('active');
+
+            // Toggle visibility of hamburger and cross icons
+            if (navbar.classList.contains('active')) {
+                hamburgerIcon.style.display = 'none';
+                crossIcon.style.display = 'inline';
+            } else {
+                hamburgerIcon.style.display = 'inline';
+                crossIcon.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
